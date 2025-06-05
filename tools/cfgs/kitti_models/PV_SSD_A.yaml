@@ -1,0 +1,232 @@
+CLASS_NAMES: ['Car']
+
+DATA_CONFIG:
+    _BASE_CONFIG_: /media/penghao/DATA2/openDet/OpenPCDet/tools/cfgs/dataset_configs/kitti_dataset.yaml
+    POINT_CLOUD_RANGE: [0, -40, -3, 70.4, 40, 1]
+    DATA_PROCESSOR:
+        - NAME: mask_points_and_boxes_outside_range
+          REMOVE_OUTSIDE_BOXES: True
+
+        - NAME: shuffle_points
+          SHUFFLE_ENABLED: {
+            'train': True,
+            'test': False
+          }
+
+        - NAME: transform_points_to_voxels
+          VOXEL_SIZE: [ 0.05, 0.05, 0.1 ]
+          MAX_POINTS_PER_VOXEL: 5
+          MAX_NUMBER_OF_VOXELS: {
+            'train': 16000,
+            'test': 40000
+          }
+    DATA_AUGMENTOR:
+        DISABLE_AUG_LIST: ['placeholder']
+        AUG_CONFIG_LIST:
+            - NAME: gt_sampling
+              USE_ROAD_PLANE: True
+              DB_INFO_PATH:
+                  - kitti_dbinfos_train.pkl
+              PREPARE: {
+                  filter_by_min_points: ['Car:5'],
+                  filter_by_difficulty: [-1],
+              }
+
+              SAMPLE_GROUPS: ['Car:15']
+              NUM_POINT_FEATURES: 4
+              DATABASE_WITH_FAKELIDAR: False
+              REMOVE_EXTRA_WIDTH: [0.0, 0.0, 0.0]
+              LIMIT_WHOLE_SCENE: False
+
+
+            - NAME: random_world_flip
+              ALONG_AXIS_LIST: ['x']
+
+            - NAME: random_world_rotation
+              WORLD_ROT_ANGLE: [-0.78539816, 0.78539816]
+
+            - NAME: random_world_scaling
+              WORLD_SCALE_RANGE: [0.95, 1.05]
+
+
+MODEL:
+    NAME: PVSSDA
+
+    VFE:
+        NAME: MeanVFE
+
+    BACKBONE_3D:
+        NAME: VoxelBackBone8x
+
+    MAP_TO_BEV:
+        NAME: HeightCompression
+        NUM_BEV_FEATURES: 256
+
+    NECK:
+        NAME: VoxelPointCross
+        POINT_GRID_POOL:
+            FEATURES_SOURCE: ['x_conv4']
+            PRE_MLP: True
+            POOL_LAYERS:
+                x_conv4:
+                    MLPS: [ [ 32, 32 ] ]
+                    QUERY_RANGES: [ [ 4, 4, 4 ] ]
+                    POOL_RADIUS: [ 1.6 ]
+                    NSAMPLE: [ 16 ]
+                    POOL_METHOD: max_pool
+#                x_conv3:
+#                    MLPS: [ [ 32, 32 ] ]
+#                    QUERY_RANGES: [ [ 4, 4, 4 ] ]
+#                    POOL_RADIUS: [ 0.8 ]
+#                    NSAMPLE: [ 16 ]
+#                    POOL_METHOD: max_pool
+#                x_conv2:
+#                    MLPS: [ [ 32, 32 ] ]
+#                    QUERY_RANGES: [ [ 4, 4, 4 ] ]
+#                    POOL_RADIUS: [ 0.4 ]
+#                    NSAMPLE: [ 16 ]
+#                    POOL_METHOD: max_pool
+#                x_conv1:
+#                    MLPS: [ [ 32, 32 ] ]
+#                    QUERY_RANGES: [ [ 4, 4, 4 ] ]
+#                    POOL_RADIUS: [ 0.2 ]
+#                    NSAMPLE: [ 16 ]
+#                    POOL_METHOD: max_pool
+
+
+    DENSE_HEAD:
+        NAME: AnchorHeadSingle
+        CLASS_AGNOSTIC: False
+
+        USE_DIRECTION_CLASSIFIER: True
+        DIR_OFFSET: 0.78539
+        DIR_LIMIT_OFFSET: 0.0
+        NUM_DIR_BINS: 2
+
+        ANCHOR_GENERATOR_CONFIG: [
+            {
+                'class_name': 'Car',
+                'anchor_sizes': [[3.9, 1.6, 1.56]],
+                'anchor_rotations': [0, 1.57],
+                'anchor_bottom_heights': [-1.78],
+                'align_center': False,
+                'feature_map_stride': 8,
+                'matched_threshold': 0.6,
+                'unmatched_threshold': 0.45
+            }
+        ]
+
+        TARGET_ASSIGNER_CONFIG:
+            NAME: AxisAlignedTargetAssigner
+            POS_FRACTION: -1.0
+            SAMPLE_SIZE: 512
+            NORM_BY_NUM_EXAMPLES: False
+            MATCH_HEIGHT: False
+            BOX_CODER: ResidualCoder
+
+        LOSS_CONFIG:
+            LOSS_WEIGHTS: {
+                'cls_weight': 1.0,
+                'dir_weight': 0.2,
+                'loc_weight': 2.0,
+                'code_weights': [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+            }
+
+    POINT_HEAD:
+        NAME: PVSSDAHead
+#        POINT_SOURCE: raw_points
+#        SAMPLE_METHOD: FPS
+#        NUM_KEYPOINTS: 512
+#        POINT_GRID_POOL:
+#            FEATURES_SOURCE: [ 'x_sp' ]
+#            PRE_MLP: True
+#            POOL_LAYERS:
+#                x_sp:
+#                    MLPS: [ [ 32, 32 ] ]
+#                    QUERY_RANGES: [ [ 4, 4, 4 ] ]
+#                    POOL_RADIUS: [ 0.2 ]
+#                    NSAMPLE: [ 16 ]
+#                    POOL_METHOD: max_pool
+
+        CLS_FC: [ 64, 64,]
+        REG_FC: [ 64, 64,]
+        PART_FC: [64, 64]
+        SHARED_FC: [256, 256]
+        DP_RATIO: 0.3
+        N_INNER: 3
+
+        CENTER_EN: [64, 64]
+        CENTER_HEAD: []
+        CENTER_DE: [64, 64]
+        OFS: [64]
+        SP: [64]
+        CORNER_EN: [64, 64]
+        CORNER_HEAD: []
+        CORNER_DE: [64, 64]
+        FG_EN: [64, 64]
+        FG_HEAD: []
+
+        CLASS_AGNOSTIC: False
+        USE_POINT_FEATURES_BEFORE_FUSION: False
+
+        TARGET_CONFIG:
+            GT_EXTRA_WIDTH: [ 0.2, 0.2, 0.2 ]
+            BOX_CODER: PointResidualCoder
+            BOX_CODER_CONFIG: {
+                'use_mean_size': True,
+                'mean_size': [
+                    [ 3.9, 1.6, 1.56 ]
+                ]
+            }
+            STACK_BOX_CODER: ResidualCoder
+
+        LOSS_CONFIG:
+            LOSS_REG: WeightedSmoothL1Loss
+            LOSS_WEIGHTS: {
+                'point_cls_weight': 1.0,
+#                'consistency_box_weight': 1.0,
+                'point_box_weight': 2.0,
+                'point_center_weight': 1.0,
+#                'point_part_weight': 1.0,
+                'point_score_weight': 1.0,
+                'point_corner_weight': 1.0,
+                'point_fg_weight': 1.0,
+                'code_weights': [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 ]
+            }
+
+    POST_PROCESSING:
+        RECALL_THRESH_LIST: [0.3, 0.5, 0.7]
+#        SCORE_THRESH: [0.7, 0.1, 0.1]
+        SCORE_THRESH: 0.3
+        OUTPUT_RAW_SCORE: False
+
+        EVAL_METRIC: kitti
+
+        NMS_CONFIG:
+            MULTI_CLASSES_NMS: False
+            NMS_TYPE: nms_gpu
+            NMS_THRESH: 0.01
+            NMS_PRE_MAXSIZE: 4096
+            NMS_POST_MAXSIZE: 128
+
+
+OPTIMIZATION:
+    BATCH_SIZE_PER_GPU: 4
+    NUM_EPOCHS: 50
+
+    OPTIMIZER: adam_onecycle
+    LR: 0.01
+    WEIGHT_DECAY: 0.01
+    MOMENTUM: 0.9
+
+    MOMS: [0.95, 0.85]
+    PCT_START: 0.4
+    DIV_FACTOR: 10
+    DECAY_STEP_LIST: [35, 45]
+    LR_DECAY: 0.1
+    LR_CLIP: 0.0000001
+
+    LR_WARMUP: False
+    WARMUP_EPOCH: 1
+
+    GRAD_NORM_CLIP: 10
