@@ -19,13 +19,12 @@ git clone https://github.com/open-mmlab/OpenPCDet.git
 
 b. Install the dependent libraries as follows:
 
-[comment]: <> (* Install the dependent python libraries: )
+* Install the dependent python libraries: 
 
-[comment]: <> (```)
+```shell
+pip install -r requirements.txt
 
-[comment]: <> (pip install -r requirements.txt )
-
-[comment]: <> (```)
+```
 
 * Install the SparseConv library, we use the implementation from [`[spconv]`](https://github.com/traveller59/spconv). 
    
