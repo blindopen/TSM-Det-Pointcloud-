@@ -17,7 +17,9 @@ a. Clone this repository.
 git clone https://github.com/open-mmlab/OpenPCDet.git
 ```
 
-b. Install the dependent libraries as follows:
+b. Copy our documents to the openpcdet related folder。
+
+c. Install the dependent libraries as follows:
 
 * Install the dependent python libraries: 
 
@@ -28,7 +30,7 @@ pip install -r requirements.txt
 
 * Install the SparseConv library, we use the implementation from [`[spconv]`](https://github.com/traveller59/spconv). 
    
-c. Install this `pcdet` library and its dependent libraries by running the following command:
+d. Install this `pcdet` library and its dependent libraries by running the following command:
 ```shell
 python setup.py develop
 ```
