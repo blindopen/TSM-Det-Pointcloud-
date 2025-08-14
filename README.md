@@ -17,7 +17,7 @@ a. Clone this repository.
 git clone https://github.com/open-mmlab/OpenPCDet.git
 ```
 
-b. Copy our documents to the openpcdet related folder。
+b. Copy our documents to the OpenPCDet related folder
 
 c. Install the dependent libraries as follows:
 
