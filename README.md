@@ -1,6 +1,6 @@
 # Transferable Class Statistics and Multi-scale Feature Approximation for 3D Object Detection
 <p align="center">
-  <img src="fig.png" width="95%">
+  <img src="Fig.png" width="95%">
 </p>
 
 ### Requirements
