@@ -1,6 +1,7 @@
 # Transferable Class Statistics and Multi-scale Feature Approximation for 3D Object Detection
-
-# Installation
+<p align="center">
+  <img src="fig.png" width="95%">
+</p>
 
 ### Requirements
 All the codes are tested in the following environment:
