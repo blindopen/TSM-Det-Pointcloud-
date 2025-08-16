@@ -3,7 +3,7 @@
   <img src="Fig.png" width="95%">
 </p>
 
-### Requirements
+## Requirements
 All the codes are tested in the following environment:
 * Linux (tested on Ubuntu 20.04)
 * Python 3.10
@@ -14,7 +14,7 @@ All the codes are tested in the following environment:
 
 Our code refers to the work [OpenPCDet](https://github.com/open-mmlab/OpenPCDet)
 
-### Install
+## Install
 
 a. Clone this repository.
 ```shell
@@ -39,7 +39,7 @@ d. Install this `pcdet` library and its dependent libraries by running the follo
 python setup.py develop
 ```
 
-### Getting Started
+## Getting Started
 ### KITTI Dataset
 * Please download the official [KITTI 3D object detection](http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d) dataset and organize the downloaded files as follows (the road planes could be downloaded from [[road plane]](https://drive.google.com/file/d/1d5mq0RXRnvHPVeKx6Q612z0YRO1t2wAp/view?usp=sharing), which are optional for data augmentation in the training):
 * If you would like to train [CaDDN](../tools/cfgs/kitti_models/CaDDN.yaml), download the precomputed [depth maps](https://drive.google.com/file/d/1qFZux7KC_gJ0UHEg-qGJKqteE9Ivojin/view?usp=sharing) for the KITTI training set
@@ -121,3 +121,20 @@ python test.py --cfg_file ${CONFIG_FILE} --batch_size ${BATCH_SIZE} --ckpt ${CKP
 ```shell script
 python test.py --cfg_file ${CONFIG_FILE} --batch_size ${BATCH_SIZE} --eval_all
 ```
+
+## Result
+### KITTI 3D Object Detection Baselines
+The results are the 3D detection performance of moderate difficulty on the *val* set of KITTI dataset.
+
+|  Car@R40 | Pedestrian@R40 | Cyclist@R40| 
+| :-------:|:-------:|:-------:|
+|  85.62  | 57.92 | 72.13 | 
+### Waymo Open Dataset Baselines
+
+All models are trained with **a single frame** of **20% data (~32k frames)** of all the training samples , and the results of each cell here are mAP/mAPH calculated by the official Waymo evaluation metrics on the **whole** validation set (version 1.2).
+| Vec_L1 | Vec_L2 | Ped_L1 | Ped_L2 | Cyc_L1 | Cyc_L2 | 
+|----------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+|71.29/70.68| 62.67/62.13| 63.14/53.73| 55.10/46.74| 64.71/62.61| 62.24/60.22|
+## Acknowledgment
+
+Our code refers to the work [OpenPCDet](https://github.com/open-mmlab/OpenPCDet)
