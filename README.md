@@ -9,6 +9,9 @@ All the codes are tested in the following environment:
 * PyTorch 2.4.1+cu118
 * [`spconv v2.x`](https://github.com/traveller59/spconv)
 
+## Acknowledgment
+
+Our code refers to the work [OpenPCDet](https://github.com/open-mmlab/OpenPCDet)
 
 ### Install
 
@@ -119,7 +122,3 @@ You could optionally add extra command line parameters `--batch_size ${BATCH_SIZ
 ```shell script
 python train.py --cfg_file ${CONFIG_FILE}
 ```
-
-## Acknowledgment
-
-Our code refers to the work [OpenPCDet](https://github.com/open-mmlab/OpenPCDet)
