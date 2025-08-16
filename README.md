@@ -102,6 +102,13 @@ python -m pcdet.datasets.waymo.waymo_dataset --func create_waymo_infos \
 
 ## Training & Testing
 
+### Train a model
+You could optionally add extra command line parameters `--batch_size ${BATCH_SIZE}` and `--epochs ${EPOCHS}` to specify your preferred parameters. 
+
+* Train with a single GPU:
+```shell script
+python train.py --cfg_file ${CONFIG_FILE}
+```
 
 ### Test and evaluate the pretrained models
 * Test with a pretrained model: 
@@ -112,13 +119,4 @@ python test.py --cfg_file ${CONFIG_FILE} --batch_size ${BATCH_SIZE} --ckpt ${CKP
 * To test all the saved checkpoints of a specific training setting and draw the performance curve on the Tensorboard, add the `--eval_all` argument: 
 ```shell script
 python test.py --cfg_file ${CONFIG_FILE} --batch_size ${BATCH_SIZE} --eval_all
-```
-
-
-### Train a model
-You could optionally add extra command line parameters `--batch_size ${BATCH_SIZE}` and `--epochs ${EPOCHS}` to specify your preferred parameters. 
-
-* Train with a single GPU:
-```shell script
-python train.py --cfg_file ${CONFIG_FILE}
 ```
