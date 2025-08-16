@@ -122,4 +122,4 @@ python train.py --cfg_file ${CONFIG_FILE}
 
 ## Acknowledgment
 
-Our code refers to the work [OpenPCDet]([https://github.com/guochengqian/PointNeXt](https://github.com/open-mmlab/OpenPCDet))
+Our code refers to the work [OpenPCDet]([(https://github.com/open-mmlab/OpenPCDet)])
