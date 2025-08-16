@@ -96,3 +96,51 @@ and you could refer to `data/waymo/waymo_processed_data_v0_5_0` to see how many 
 python -m pcdet.datasets.waymo.waymo_dataset --func create_waymo_infos \
     --cfg_file tools/cfgs/dataset_configs/waymo_dataset.yaml
 ```
+
+## Training & Testing
+
+
+### Test and evaluate the pretrained models
+* Test with a pretrained model: 
+```shell script
+python test.py --cfg_file ${CONFIG_FILE} --batch_size ${BATCH_SIZE} --ckpt ${CKPT}
+```
+
+* To test all the saved checkpoints of a specific training setting and draw the performance curve on the Tensorboard, add the `--eval_all` argument: 
+```shell script
+python test.py --cfg_file ${CONFIG_FILE} --batch_size ${BATCH_SIZE} --eval_all
+```
+
+* To test with multiple GPUs:
+```shell script
+sh scripts/dist_test.sh ${NUM_GPUS} \
+    --cfg_file ${CONFIG_FILE} --batch_size ${BATCH_SIZE}
+
+# or
+
+sh scripts/slurm_test_mgpu.sh ${PARTITION} ${NUM_GPUS} \
+    --cfg_file ${CONFIG_FILE} --batch_size ${BATCH_SIZE}
+```
+
+
+### Train a model
+You could optionally add extra command line parameters `--batch_size ${BATCH_SIZE}` and `--epochs ${EPOCHS}` to specify your preferred parameters. 
+  
+
+* Train with multiple GPUs or multiple machines
+```shell script
+sh scripts/dist_train.sh ${NUM_GPUS} --cfg_file ${CONFIG_FILE}
+
+# or 
+
+sh scripts/slurm_train.sh ${PARTITION} ${JOB_NAME} ${NUM_GPUS} --cfg_file ${CONFIG_FILE}
+```
+
+* Train with a single GPU:
+```shell script
+python train.py --cfg_file ${CONFIG_FILE}
+```
+
+## Acknowledgment
+
+Our code refers to the work [OpenPCDet]([https://github.com/guochengqian/PointNeXt](https://github.com/open-mmlab/OpenPCDet))
