@@ -5,6 +5,7 @@
 
 ## Requirements
 All the codes are tested in the following environment:
+* NVIDIA 2080TI (11G)
 * Linux (tested on Ubuntu 20.04)
 * Python 3.10
 * PyTorch 2.4.1+cu118
