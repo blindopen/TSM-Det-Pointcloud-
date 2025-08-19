@@ -129,6 +129,7 @@ The results are the 3D detection performance on the *val* set of KITTI dataset. 
 
 | | Car@R40 || |Pedestrian@R40| | |Cyclist@R40|| 
 | :-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+|Easy|Mod.|Hard|Easy|Mod.|Hard|Easy|Mod.|Hard|
 | 92.73| 85.62  |82.99| 63.03 |57.92 |52.26| 91.63| 72.13 |67.48|
 ### Waymo Open Dataset Baselines
 
