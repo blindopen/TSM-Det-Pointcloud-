@@ -132,6 +132,15 @@ The results are the 3D detection performance on the *val* set of KITTI dataset.
 | :-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
 |Easy|Mod.|Hard|Easy|Mod.|Hard|Easy|Mod.|Hard|
 | 92.73| 85.62  |82.99| 63.03 |57.92 |52.26| 91.63| 72.13 |67.48|
+
+If the environment is successfully built, the results can be obtained by the following command
+```shell script
+python test.py --cfg_file ${path to fast_cpc.yaml} --batch_size ${BATCH_SIZE} --ckpt ${pretrained modle for kitti}
+```
+We also provide a log of our results in the paper
+```shell script
+.res_kitti.txt
+```
 ### Waymo Open Dataset Baselines
 
 All models are trained with **a single frame** of **20% data (~32k frames)** of all the training samples , and the results of each cell here are mAP/mAPH calculated by the official Waymo evaluation metrics on the **whole** validation set (version 1.2). 
@@ -139,6 +148,15 @@ All models are trained with **a single frame** of **20% data (~32k frames)** of 
 | Vec_L1 | Vec_L2 | Ped_L1 | Ped_L2 | Cyc_L1 | Cyc_L2 | 
 |----------:|:-------:|:-------:|:-------:|:-------:|:-------:|
 |71.29/70.68| 62.67/62.13| 63.14/53.73| 55.10/46.74| 64.71/62.61| 62.24/60.22|
+
+If the environment is successfully built, the results can be obtained by the following command
+```shell script
+python test.py --cfg_file ${path to waymo_fast_cpc.yaml.yaml} --batch_size ${BATCH_SIZE} --ckpt ${pretrained modle for waymo}
+```
+We also provide a log of our results in the paper
+```shell script
+.res_waymo.txt
+```
 ## Acknowledgment
 
 Our code refers to the work [OpenPCDet](https://github.com/open-mmlab/OpenPCDet)
