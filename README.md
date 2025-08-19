@@ -127,8 +127,8 @@ python test.py --cfg_file ${CONFIG_FILE} --batch_size ${BATCH_SIZE} --eval_all
 ### KITTI 3D Object Detection Baselines
 The results are the 3D detection performance on the *val* set of KITTI dataset. (trained 100epoch)
 
-|  | Car@R40 || |Pedestrian@R40| | |Cyclist@R40|| 
-| :-------:|:-------:|:-------:|
+| | Car@R40 || |Pedestrian@R40| | |Cyclist@R40|| 
+| :-------:|:-------:|:-------:|:-------:|::-------:|::-------:|::-------:|::-------:|::-------:|:
 | 92.73| 85.62  |82.99| 63.03 |57.92 |52.26| 91.63| 72.13 |67.48|
 ### Waymo Open Dataset Baselines
 
