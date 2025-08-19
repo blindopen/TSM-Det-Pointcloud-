@@ -135,7 +135,7 @@ The results are the 3D detection performance on the *val* set of KITTI dataset.
 
 If the environment is successfully built, the results can be obtained by the following command
 ```shell script
-python test.py --cfg_file ${path to fast_cpc.yaml} --batch_size ${BATCH_SIZE} --ckpt ${pretrained modle for kitti}
+python test.py --cfg_file ${path to fast_cpc.yaml} --batch_size ${BATCH_SIZE} --ckpt ${pretrained model for kitti}
 ```
 We also provide a log of our results in the paper
 ```shell script
@@ -144,14 +144,14 @@ We also provide a log of our results in the paper
 ### Waymo Open Dataset Baselines
 
 All models are trained with **a single frame** of **20% data (~32k frames)** of all the training samples , and the results of each cell here are mAP/mAPH calculated by the official Waymo evaluation metrics on the **whole** validation set (version 1.2). 
-(trained 30epoch ~8h [Pretrained BaiduDisk](https://pan.baidu.com/s/1q8K6xIOgDUvbRZTAG2FY3w?pwd=jse4)  Table 5 in the paper）
+(trained 30epoch ~8h [Pretrained Model BaiduDisk](https://pan.baidu.com/s/1q8K6xIOgDUvbRZTAG2FY3w?pwd=jse4)  Table 5 in the paper）
 | Vec_L1 | Vec_L2 | Ped_L1 | Ped_L2 | Cyc_L1 | Cyc_L2 | 
 |----------:|:-------:|:-------:|:-------:|:-------:|:-------:|
 |71.29/70.68| 62.67/62.13| 63.14/53.73| 55.10/46.74| 64.71/62.61| 62.24/60.22|
 
 If the environment is successfully built, the results can be obtained by the following command
 ```shell script
-python test.py --cfg_file ${path to waymo_fast_cpc.yaml} --batch_size ${BATCH_SIZE} --ckpt ${pretrained modle for waymo}
+python test.py --cfg_file ${path to waymo_fast_cpc.yaml} --batch_size ${BATCH_SIZE} --ckpt ${pretrained model for waymo}
 ```
 We also provide a log of our results in the paper
 ```shell script
