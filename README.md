@@ -125,7 +125,8 @@ python test.py --cfg_file ${CONFIG_FILE} --batch_size ${BATCH_SIZE} --eval_all
 
 ## Result
 ### KITTI 3D Object Detection Baselines
-The results are the 3D detection performance on the *val* set of KITTI dataset. (trained 100epoch [Model BaiduDisk](https://pan.baidu.com/s/1krSeerKtIXBzMIIW0TjfYA?pwd=29fw ))
+The results are the 3D detection performance on the *val* set of KITTI dataset. 
+(trained 100epoch [Model BaiduDisk](https://pan.baidu.com/s/1krSeerKtIXBzMIIW0TjfYA?pwd=29fw ))
 
 | | Car@R40 || |Ped.@R40| | |Cyc.@R40||
 | :-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
@@ -133,7 +134,8 @@ The results are the 3D detection performance on the *val* set of KITTI dataset. 
 | 92.73| 85.62  |82.99| 63.03 |57.92 |52.26| 91.63| 72.13 |67.48|
 ### Waymo Open Dataset Baselines
 
-All models are trained with **a single frame** of **20% data (~32k frames)** of all the training samples , and the results of each cell here are mAP/mAPH calculated by the official Waymo evaluation metrics on the **whole** validation set (version 1.2). (trained 30epoch [Model BaiduDisk](https://pan.baidu.com/s/1q8K6xIOgDUvbRZTAG2FY3w?pwd=jse4)）
+All models are trained with **a single frame** of **20% data (~32k frames)** of all the training samples , and the results of each cell here are mAP/mAPH calculated by the official Waymo evaluation metrics on the **whole** validation set (version 1.2). 
+(trained 30epoch [Model BaiduDisk](https://pan.baidu.com/s/1q8K6xIOgDUvbRZTAG2FY3w?pwd=jse4)）
 | Vec_L1 | Vec_L2 | Ped_L1 | Ped_L2 | Cyc_L1 | Cyc_L2 | 
 |----------:|:-------:|:-------:|:-------:|:-------:|:-------:|
 |71.29/70.68| 62.67/62.13| 63.14/53.73| 55.10/46.74| 64.71/62.61| 62.24/60.22|
