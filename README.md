@@ -151,7 +151,7 @@ All models are trained with **a single frame** of **20% data (~32k frames)** of 
 
 If the environment is successfully built, the results can be obtained by the following command
 ```shell script
-python test.py --cfg_file ${path to waymo_fast_cpc.yaml.yaml} --batch_size ${BATCH_SIZE} --ckpt ${pretrained modle for waymo}
+python test.py --cfg_file ${path to waymo_fast_cpc.yaml} --batch_size ${BATCH_SIZE} --ckpt ${pretrained modle for waymo}
 ```
 We also provide a log of our results in the paper
 ```shell script
