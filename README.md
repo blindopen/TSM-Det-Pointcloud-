@@ -115,10 +115,9 @@ python train.py --cfg_file ${CONFIG_FILE}
 
 
 ### Waymo Open Dataset
-We provide the setting of [`DATA_CONFIG.SAMPLED_INTERVAL`](tools/cfgs/dataset_configs/waymo_dataset.yaml) on the Waymo Open Dataset (WOD) to subsample partial samples for training and evaluation, 
-so you could also play with WOD by setting a smaller `DATA_CONFIG.SAMPLED_INTERVAL` even if you only have limited GPU resources. 
-By default, all models are trained with **a single frame** of **20% data (~32k frames)** of all the training samples, and the results of each cell here are mAP/mAPH calculated by the official Waymo evaluation metrics on the **whole** validation set (version 1.2).    
+All models are trained with **a single frame** of **20% data (~32k frames)** of all the training samples, and the results of each cell here are mAP/mAPH calculated by the official Waymo evaluation metrics on the **whole** validation set (version 1.2).    
 
 | Vec_L1 | Vec_L2 | Ped_L1 | Ped_L2 | Cyc_L1 | Cyc_L2 |  
 |----------:|:-------:|:-------:|:-------:|:-------:|:-------:|
-| 70.96/70.34|62.58/62.02|65.23/54.24	|57.22/47.49|	57.13/55.62 |	54.97/53.53 | 
+| 71.29/70.68|62.67/62.13|63.14/53.73	|55.10/46.74|	64.71/62.61 |	62.24 /60.22 | 
+          
