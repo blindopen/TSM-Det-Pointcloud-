@@ -108,14 +108,14 @@ python train.py --cfg_file ${CONFIG_FILE}
 ## Result
 
 ### KITTI
-
+The results are the 3D detection performance on the *val* set of KITTI dataset [Pretrained model for KITTI](https://pan.baidu.com/s/1Nz0FObDQFVo0Wm2YVkhH9Q?pwd=8mdp).
 | Easy Car |Mod. Car |Hard Car | Easy Ped |Mod. Ped |Hard Ped | Easy Cyc | Mod. Cyc | Hard Cyc | 
 |:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
 | 92.73|  85.62|  82.99|  63.03|  57.92|  52.26|  91.63|  72.13|  67.48| 
 
 
 ### Waymo Open Dataset
-All models are trained with **a single frame** of **20% data (~32k frames)** of all the training samples, and the results of each cell here are mAP/mAPH calculated by the official Waymo evaluation metrics on the **whole** validation set (version 1.2).    
+The model is trained with **a single frame** of **20% data (~32k frames)** of all the training samples, and the results of each cell here are mAP/mAPH calculated by the official Waymo evaluation metrics on the **whole** validation set (version 1.2).    
 
 | Vec_L1 | Vec_L2 | Ped_L1 | Ped_L2 | Cyc_L1 | Cyc_L2 |  
 |----------:|:-------:|:-------:|:-------:|:-------:|:-------:|
