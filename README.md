@@ -24,7 +24,7 @@ python setup.py develop
 Currently we provide the dataloader of KITTI, Waymo. 
 
 ### KITTI Dataset
-* Please download the official [KITTI 3D object detection](http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d) dataset and organize the downloaded files as follows (the road planes could be downloaded from [[road plane]](https://drive.google.com/file/d/1d5mq0RXRnvHPVeKx6Q612z0YRO1t2wAp/view?usp=sharing), which are optional for data augmentation in the training):
+* Please download the official KITTI 3D object detection dataset and organize the downloaded files as follows (the road planes could be downloaded from [[road plane]](https://drive.google.com/file/d/1d5mq0RXRnvHPVeKx6Q612z0YRO1t2wAp/view?usp=sharing), which are optional for data augmentation in the training):
 
 
 ```
@@ -45,7 +45,7 @@ OpenPCDet
 python -m pcdet.datasets.kitti.kitti_dataset create_kitti_infos tools/cfgs/dataset_configs/kitti_dataset.yaml
 ```
 ### Waymo Open Dataset
-* Please download the official [Waymo Open Dataset](https://waymo.com/open/download/), 
+* Please download the official Waymo Open Dataset, 
 including the training data `training_0000.tar~training_0031.tar` and the validation 
 data `validation_0000.tar~validation_0007.tar`.
 * Unzip all the above `xxxx.tar` files to the directory of `data/waymo/raw_data` as follows (You could get 798 *train* tfrecord and 202 *val* tfrecord ):  
