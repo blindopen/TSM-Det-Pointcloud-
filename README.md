@@ -12,7 +12,7 @@ All the codes are tested in the following environment:
 The requirement.txt file is generated through pipreq. Actually, we found many other libraries in my environment, as shown in this video [Environment Video Baidu Netdisk](https://pan.baidu.com/s/1gjsPknpqFZpHoAJ5h6VS6g?pwd=7g28).
 
 ## Installation
-a. Install the dependent libraries as mentioned above. <font color=red>Please make sure that the environment is configured successfully</font>.
+a. Install the dependent libraries as mentioned above. <font color=#FF000>Please make sure that the environment is configured successfully</font>.
  
 b. Install this `pcdet` library and its dependent libraries by running the following command, as shown in this video [Setup Video Baidu Netdisk](https://pan.baidu.com/s/1BJFyXH9I5eSYpGxsR2cXsQ?pwd=hb7x):
 ```shell
