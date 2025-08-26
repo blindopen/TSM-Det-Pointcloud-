@@ -107,4 +107,8 @@ python train.py --cfg_file ${CONFIG_FILE}
 ```
 ## Result
 
+### KITTI
 
+| training time | Easy Car |Mod. Car |Hard Car | Easy Ped |Mod. Ped |Hard Ped | Easy Cyc | Mod. Cyc | Hard Cyc | 
+|----------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+|~1.2 hours| 77.28 | 52.29 | 62.68 |77.28 | 52.29 | 62.68 |77.28 | 52.29 | 62.68 |
