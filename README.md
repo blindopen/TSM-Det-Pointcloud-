@@ -88,3 +88,23 @@ python -m pcdet.datasets.waymo.waymo_dataset --func create_waymo_infos \
 ```
 
 Note that you do not need to install `waymo-open-dataset` if you have already processed the data before and do not need to evaluate with official Waymo Metrics. 
+
+## Training & Testing
+
+### Test and evaluate the pretrained models
+* Test with a pretrained model: 
+```shell script
+python test.py --cfg_file ${CONFIG_FILE} --batch_size ${BATCH_SIZE} --ckpt ${CKPT}
+```
+
+
+### Train a model
+You could optionally add extra command line parameters `--batch_size ${BATCH_SIZE}` and `--epochs ${EPOCHS}` to specify your preferred parameters. 
+  
+* Train with a single GPU:
+```shell script
+python train.py --cfg_file ${CONFIG_FILE}
+```
+## Result
+
+
