@@ -9,7 +9,7 @@ All the codes are tested in the following environment:
 * NVIDIA 2080Ti 11G
 * [`spconv v2.x`](https://github.com/traveller59/spconv)
 
-The requirement.txt file is generated through pipreq. Actually, we found many other libraries in my environment, as shown in this video [Environment Video Baidu Netdisk](https://pan.baidu.com/s/1gjsPknpqFZpHoAJ5h6VS6g?pwd=7g28).
+**The requirement.txt file is generated through pipreq. Actually, we found many other libraries in my environment**, as shown in this video [Environment Video Baidu Netdisk](https://pan.baidu.com/s/1gjsPknpqFZpHoAJ5h6VS6g?pwd=7g28).
 
 ## Installation
 a. Install the dependent libraries as mentioned above. **Please make sure that the environment is configured successfully**.
