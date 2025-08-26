@@ -108,16 +108,31 @@ python train.py --cfg_file ${CONFIG_FILE}
 ## Result
 
 ### KITTI
-The results are the 3D detection performance on the *val* set of KITTI dataset [Pretrained model for KITTI](https://pan.baidu.com/s/1Nz0FObDQFVo0Wm2YVkhH9Q?pwd=8mdp).
+The results are the 3D detection performance on the *val* set of KITTI dataset. [Pretrained model for KITTI ~5h](https://pan.baidu.com/s/1Nz0FObDQFVo0Wm2YVkhH9Q?pwd=8mdp)
+* Test with a pretrained model, as shown in the video. [test_kitti_video]( ) 
+```shell script
+python test.py --cfg_file ${path_to_cfg_file_for_kitti} --batch_size ${BATCH_SIZE} --ckpt ${path_to_ckpt_for_kitti}
+```
 | Easy Car |Mod. Car |Hard Car | Easy Ped |Mod. Ped |Hard Ped | Easy Cyc | Mod. Cyc | Hard Cyc | 
 |:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
 | 92.73|  85.62|  82.99|  63.03|  57.92|  52.26|  91.63|  72.13|  67.48| 
-
+Actually, deep learning involves a certain amount of randomness, so we provide logs to prove the source of the experimental data.
+```shell script
+./res_kitti.txt
+```
 
 ### Waymo Open Dataset
-The model is trained with **a single frame** of **20% data (~32k frames)** of all the training samples, and the results of each cell here are mAP/mAPH on the **whole** validation set (version 1.2)[Pretrained model for Waymo](https://pan.baidu.com/s/1R2_jE-ADWclzuqUVkouGrQ?pwd=uvvb)    
-
+The model is trained with **a single frame** of **20% data (~32k frames)** of all the training samples, and the results of each cell here are mAP/mAPH on the **whole** validation set (version 1.2). [Pretrained model for Waymo~12h](https://pan.baidu.com/s/1R2_jE-ADWclzuqUVkouGrQ?pwd=uvvb)    
+* Test with a pretrained model, as shown in the video. [test_waymo_video]( ) 
+```shell script
+python test.py --cfg_file ${path_to_cfg_file_for_waymo} --batch_size ${BATCH_SIZE} --ckpt ${path_to_ckpt_for_waymo}
+```
 | Vec_L1 | Vec_L2 | Ped_L1 | Ped_L2 | Cyc_L1 | Cyc_L2 |  
 |----------:|:-------:|:-------:|:-------:|:-------:|:-------:|
 | 71.29/70.68|62.67/62.13|63.14/53.73	|55.10/46.74|	64.71/62.61 |	62.24 /60.22 | 
-          
+
+
+We also provide logs to prove the source of the experimental data.
+```shell script
+./res_waymo.txt
+```
