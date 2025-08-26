@@ -115,7 +115,7 @@ The results are the 3D detection performance on the *val* set of KITTI dataset [
 
 
 ### Waymo Open Dataset
-The model is trained with **a single frame** of **20% data (~32k frames)** of all the training samples, and the results of each cell here are mAP/mAPH calculated by the official Waymo evaluation metrics on the **whole** validation set (version 1.2).    
+The model is trained with **a single frame** of **20% data (~32k frames)** of all the training samples, and the results of each cell here are mAP/mAPH on the **whole** validation set (version 1.2)[Pretrained model for Waymo](https://pan.baidu.com/s/1R2_jE-ADWclzuqUVkouGrQ?pwd=uvvb)    
 
 | Vec_L1 | Vec_L2 | Ped_L1 | Ped_L2 | Cyc_L1 | Cyc_L2 |  
 |----------:|:-------:|:-------:|:-------:|:-------:|:-------:|
