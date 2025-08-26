@@ -111,7 +111,7 @@ python train.py --cfg_file ${CONFIG_FILE}
 
 | Easy Car |Mod. Car |Hard Car | Easy Ped |Mod. Ped |Hard Ped | Easy Cyc | Mod. Cyc | Hard Cyc | 
 |:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
-| 77.28 | 52.29 | 62.68 |77.28 | 52.29 | 62.68 |77.28 | 52.29 | 62.68 |
+| 92.73|  85.62|  82.99|  63.03|  57.92|  52.26|  91.63|  72.13|  67.48| 
 
 
 ### Waymo Open Dataset
