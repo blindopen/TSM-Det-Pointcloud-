@@ -137,3 +137,5 @@ We also provide logs to prove the source of the experimental data.
 ```shell script
 ./res_waymo.txt
 ```
+## Acknowledgment
+Our code refers to the work [OpenPCDet](https://github.com/open-mmlab/OpenPCDet)
