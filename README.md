@@ -108,7 +108,7 @@ python train.py --cfg_file ${CONFIG_FILE}
 ## Result
 
 ### KITTI
-The results are the 3D detection performance on the *val* set of KITTI dataset. [Pretrained model for KITTI ~5h Baidu Netdisk](https://pan.baidu.com/s/1Nz0FObDQFVo0Wm2YVkhH9Q?pwd=8mdp)
+The results are the 3D detection performance on the *val* set of KITTI dataset. [Pretrained model for KITTI ~5h Table6 Baidu Netdisk](https://pan.baidu.com/s/1Nz0FObDQFVo0Wm2YVkhH9Q?pwd=8mdp)
 * Test with a pretrained model, as shown in the video. [test_kitti_video Baidu Netdisk](https://pan.baidu.com/s/1ml9H0JyEAmB6HRbgo1lPUA?pwd=23ts) 
 ```shell script
 python test.py --cfg_file ${path_to_cfg_file_for_kitti} --batch_size ${BATCH_SIZE} --ckpt ${path_to_ckpt_for_kitti}
@@ -123,7 +123,7 @@ Actually, deep learning involves a certain amount of randomness, so we provide l
 ```
 
 ### Waymo Open Dataset
-The model is trained with **a single frame** of **20% data (~32k frames)** of all the training samples, and the results of each cell here are mAP/mAPH on the **whole** validation set (version 1.2). [Pretrained model for Waymo~12h Baidu Netdisk](https://pan.baidu.com/s/1R2_jE-ADWclzuqUVkouGrQ?pwd=uvvb)    
+The model is trained with **a single frame** of **20% data (~32k frames)** of all the training samples, and the results of each cell here are mAP/mAPH on the **whole** validation set (version 1.2). [Pretrained model for Waymo~12h Table5 Baidu Netdisk](https://pan.baidu.com/s/1R2_jE-ADWclzuqUVkouGrQ?pwd=uvvb)    
 * Test with a pretrained model, as shown in the video. [test_waymo_video Baidu Netdisk](https://pan.baidu.com/s/1KxkfFDsfwwH7V4FBCNPjCw?pwd=tnyh) 
 ```shell script
 python test.py --cfg_file ${path_to_cfg_file_for_waymo} --batch_size ${BATCH_SIZE} --ckpt ${path_to_ckpt_for_waymo}
