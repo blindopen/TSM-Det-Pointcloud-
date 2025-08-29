@@ -7,7 +7,6 @@ All the codes are tested in the following environment:
 * Python 3.10
 * PyTorch 2.0
 * CUDA 11.8
-* 
 * NVIDIA 2080Ti 11G
 * [`spconv v2.x`](https://github.com/traveller59/spconv)
 
