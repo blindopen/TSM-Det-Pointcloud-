@@ -3,9 +3,11 @@
 ## Requirements
 All the codes are tested in the following environment:
 * Linux (tested on Ubuntu 20.04)
+* Conda 24.5.0
 * Python 3.10
 * PyTorch 2.0
 * CUDA 11.8
+* 
 * NVIDIA 2080Ti 11G
 * [`spconv v2.x`](https://github.com/traveller59/spconv)
 
@@ -13,7 +15,25 @@ All the codes are tested in the following environment:
 
 ## Installation
 a. Install the dependent libraries as mentioned above. **Please make sure that the environment is configured successfully**.
- 
+```shell
+conda create -n newenv python=3.10
+conda activate newenv
+pip install torch==2.0.0 torchvision==0.15.1 torchaudio==2.0.1 --index-url https://download.pytorch.org/whl/cu118
+pip install spconv-cu118
+
+pip uninstall numpy
+
+pip install numpy==1.23.0
+pip install tensorboardX
+pip install tqdm==4.67
+pip install SharedArray==3.2.4
+pip install Scipy==1.12.0
+pip install PyYAML==6.0.2
+pip install easydict==1.13
+pip install numba==0.60.0
+pip install scikit-image==0.23
+
+```
 b. Install this `pcdet` library and its dependent libraries by running the following command, as shown in this video [Setup Video Baidu Netdisk](https://pan.baidu.com/s/1BJFyXH9I5eSYpGxsR2cXsQ?pwd=hb7x):
 ```shell
 python setup.py develop
