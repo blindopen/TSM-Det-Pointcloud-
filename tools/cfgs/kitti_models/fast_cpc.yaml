@@ -3,7 +3,7 @@ CLASS_NAMES: ['Car','Pedestrian', 'Cyclist']
 #CLASS_NAMES: ['Car']
 
 DATA_CONFIG:
-    _BASE_CONFIG_: /media/penghao/240SSD1/OpenPCDetSSDDistillation/tools/cfgs/dataset_configs/kitti_dataset.yaml
+    _BASE_CONFIG_: cfgs/dataset_configs/kitti_dataset.yaml
 
     DATA_AUGMENTOR:
         DISABLE_AUG_LIST: ['placeholder']
@@ -64,7 +64,7 @@ DATA_CONFIG:
         -   NAME: repository_info
             VOXEL_SIZE: [0.05, 0.05, 0.1]
             FACTOR: 4
-OUTPUT_PATH: '/media/penghao/DATA1/result/SSD'
+OUTPUT_PATH: 'result/SSD'
 
 MODEL:
     NAME: 3DSSD
