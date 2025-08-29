@@ -12,7 +12,7 @@ All the codes are tested in the following environment:
 
 **The requirement.txt file is generated through pipreq. Actually, we found many other libraries in my environment**
 
-## Installation [Install Video Baidu Netdisk](https://pan.baidu.com/s/124SsxDbjzOnswzRpx4nQvw?pwd=3peh):
+## Installation ([Install Video Baidu Netdisk](https://pan.baidu.com/s/124SsxDbjzOnswzRpx4nQvw?pwd=3peh)):
 a. Install the dependent libraries as mentioned above. **Please make sure that the environment is configured successfully**.
 ```shell
 conda create -n newenv python=3.10
