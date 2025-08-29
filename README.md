@@ -109,6 +109,8 @@ python -m pcdet.datasets.waymo.waymo_dataset --func create_waymo_infos \
 
 Note that you do not need to install `waymo-open-dataset` if you have already processed the data before and do not need to evaluate with official Waymo Metrics. 
 
+**NOTE!!!: The dataset path needs to be configured in kitti_dataset.yaml and waymo_dataset.yaml**
+
 ## Training & Testing
 
 ### Test and evaluate the pretrained models
